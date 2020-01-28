@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SortePer
 {
+    /// <summary>
+    /// Contains difference error codes
+    /// </summary>
     enum ErrorCode
     {
         NotEnoughPlayers,

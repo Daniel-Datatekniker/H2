@@ -8,22 +8,29 @@ namespace SortePer
 {
     class CardText
     {
+        /// <summary>
+        /// List of names for the disney card
+        /// </summary>
         private List<string> disneyCardNames = new List<string>()
         {
-             "Sorte Per", "Micky Mouse",
-            "Anders And", "Andersine",
-            "Mogli", "Fedtmule", "Max",
+             "Bad Pete", "Micky Mouse",
+            "Donald Duck", "Daisy Duck",
+            "Mowsgli", "Goofy", "Max",
             "Mulan", "Mushu", "Rip", "Rap", "Rup",
-            "Onkel Joakim", "Aladin", "Doris", 
+            "Scrooge McDuck", "Aladin", "Dorit", 
 
         };
-
+        /// <summary>
+        /// Return list of disney names
+        /// </summary>
         public List<string> DisneyCardNames
         {
             get { return disneyCardNames; }
         }
 
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public CardText()
         {
 

@@ -41,12 +41,19 @@ namespace SortePer
         }
         //Constructor
 
-
+            /// <summary>
+            /// Constructor that requirre a playername
+            /// </summary>
+            /// <param name="playerName"></param>
         public Player(string playerName)
         {
             Name = playerName;
         }
 
+        /// <summary>
+        /// gives a random card from your hand away
+        /// </summary>
+        /// <returns></returns>
         public DisneyCard GiveCard()
         {
             if (hand.Count > 0)
@@ -63,6 +70,10 @@ namespace SortePer
             }
         }
 
+        /// <summary>
+        /// Goes through your hand and and check if you have any matching cards
+        /// </summary>
+        /// <returns></returns>
         public string Pair()
         {
             //Check om den findes allerede;
@@ -110,6 +121,11 @@ namespace SortePer
 
         }
 
+        /// <summary>
+        /// add card to your hand, if you already have this card on your hand, you pair it
+        /// </summary>
+        /// <param name="disneyCard"></param>
+        /// <returns></returns>
         public string AddCard(DisneyCard disneyCard)
         {
             if (hand.Exists(o=> o.Name == disneyCard.Name))

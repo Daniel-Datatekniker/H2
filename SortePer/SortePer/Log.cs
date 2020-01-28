@@ -24,7 +24,7 @@ namespace SortePer
         /// <summary>
         /// Give you the player limit
         /// </summary>
-        public string PlayerLimit = "You need min 2 players, or 1 player and 1 ai,  max is 4!";
+        public string PlayerLimit = "You need min 1 ai,  max is 4!";
         /// <summary>
         /// Input your name
         /// </summary>

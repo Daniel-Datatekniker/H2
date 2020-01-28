@@ -28,12 +28,16 @@ namespace SortePer
         }
 
         //Create set of disneycards
+        /// <summary>
+        /// Create a set of 31 DisneyCards
+        /// </summary>
+        /// <returns></returns>
         private List<DisneyCard> CreateDisneyCards()
         {
             List<DisneyCard> disCard = new List<DisneyCard>();
             foreach (var name in cardNames.DisneyCardNames)
             {
-                if (name == "Sorte Per")
+                if (name == "Bad Pete")
                 {
                     disCard.Add(new DisneyCard(name));
                 }
@@ -48,7 +52,12 @@ namespace SortePer
             return disCard;
         }
 
-
+        /// <summary>
+        /// Takes a list and shuffle it, then return the list
+        /// </summary>
+        /// <typeparam name="E"></typeparam>
+        /// <param name="inputList"></param>
+        /// <returns></returns>
         private List<E> ShuffleList<E>(List<E> inputList)
         {
             List<E> randomList = new List<E>();
