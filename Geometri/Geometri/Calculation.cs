@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Geometri
 {
-    enum Boxes
+    public enum Calculation
     {
-        Square,
+        Perimeter,
+        Area,
 
     }
 }

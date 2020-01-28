@@ -14,15 +14,18 @@ namespace Geometri
 
         }
 
-        public string Message(Boxes BoxType)
+        public string Message(Calculation BoxType)
         {
             
             switch (BoxType)
             {
-                case Boxes.Square:
-                    returnMessage = $"The perimeter of the {BoxType} = ";
+                case Calculation.Perimeter:
+                    returnMessage = $"The perimeter = ";
                     break;
 
+                case Calculation.Area:
+                    returnMessage = $"The area = ";
+                    break;
                 default:
 
                     break;

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Geometri
 {
-    class Square
+   public class Square
     {
         //Attribute
         private double a = 900;
-        private Boxes type = Boxes.Square;
+        private Calculation calculationType;
+        protected double result;
 
         //Properties
         public double A
@@ -19,25 +20,42 @@ namespace Geometri
             set { a = value; }
         }
 
-        public Boxes Type
+        public Calculation CalculationType
         {
-            get { return type; }
+            get { return calculationType; }
+            set { calculationType = value; }
         }
 
 
         //Construtor 
-        public Square(double squareA)
+        public Square(double aSide)
         {
-            A = squareA;
+            A = aSide;
         }
 
-
-
-        public double Perimeter()
+        public Square()
         {
-            return A * 4;
+
         }
 
+        public virtual double Calculate(Calculation calculation)
+        {
+            switch (calculation)
+            {
+                case Calculation.Perimeter:
+                    A = A * 4;
+
+                    break;
+                case Calculation.Area:
+                    A = A * A;
+                    break;
+                default:
+                    break;
+            }
+            return A;
+        }
+
+        
 
 
     }
