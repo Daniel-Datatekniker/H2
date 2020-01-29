@@ -21,7 +21,6 @@ namespace Geometri
         //Constructor
         public Rectangle()
         {
-
         }
         public Rectangle(double aSide, double Height) : base(aSide)
         {
