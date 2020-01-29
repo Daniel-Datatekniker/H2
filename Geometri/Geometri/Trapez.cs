@@ -63,12 +63,9 @@ namespace Geometri
                 case Calculation.Area:
                     s = (A + B - C + D) / 2;
 
-                 result = 2 / (A - c) * Math.Sqrt(s * (s - A + C) * (s - B) * (s - d));
-                    if (result.ToString() == "NaN")
-                    {
-                        result = 0;
-                    }
+                 h = 2 / (A - c) * Math.Sqrt(s * (s - A + C) * (s - B) * (s - d));
 
+                    result = 0.5 * (A - C) * h;
 
                   
                     break;
