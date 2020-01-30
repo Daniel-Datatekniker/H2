@@ -12,7 +12,7 @@ namespace CoffeMachineTask
         //Atribute
         private CoffePot pot;
         private WaterTank tank;
-        private Filter filter;
+        private Capsule capsule;
         //Properties
         public CoffePot Pot
         {
@@ -26,10 +26,10 @@ namespace CoffeMachineTask
             private set { tank = value; }
         }
 
-        public Filter Filter
+        public Capsule Capsule
         {
-            get { return filter; }
-            set { filter = value; }
+            get { return capsule; }
+            set { capsule = value; }
         }
 
         //Constructor
@@ -43,10 +43,11 @@ namespace CoffeMachineTask
         public override string Start()
         {
             base.Start();
-            return BrewCoffe();
+
+            return Brew();
         }
 
-        private string BrewCoffe()
+        private string Brew()
         {
             if (CheckWaterLevel())
             {
@@ -56,7 +57,7 @@ namespace CoffeMachineTask
                     pot.CurrentCoffe = tank.CurrentWater;
                     tank.CurrentWater = 0;
                     OnOff = false;
-                    return "Coffe done";
+                    return $"{Capsule.Type.ToString()} done";
                 }
                 else
                 {
@@ -69,8 +70,9 @@ namespace CoffeMachineTask
             {
                 OnOff = false;
                 return "Water level is too low";
-            }            
+            }
         }
+
 
         private bool CheckWaterLevel()
         {
@@ -84,6 +86,9 @@ namespace CoffeMachineTask
             }
 
         }
+
+
+
 
     }
 }

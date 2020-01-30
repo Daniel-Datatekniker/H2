@@ -22,7 +22,8 @@ namespace CoffeMachineTask
                 while (coffeMachine.OnOff == false)
                 {
                     Console.Clear();
-                    Console.WriteLine("Press [1] to add filter\nPress [2] to add water\nPress [3] to brew coffe\nPress[4] to shutdown coffe machine");
+
+                    Console.WriteLine("Press [1] to add coffe capsule\nPress [2] to add tea capsule\nPress [3] to add Express capsule\nPress [4] to add water\nPress [5] to start brewing\nPress [6] to shutdown coffe machine");
                     try
                     {
                         ConsoleKeyInfo input = Console.ReadKey();
@@ -30,26 +31,32 @@ namespace CoffeMachineTask
                         switch (input.KeyChar)
                         {
                             case '1':
-                                Console.WriteLine(human.AddFilter(coffeMachine));
+                                Console.WriteLine(human.AddCapsule(coffeMachine, CapsuleType.Coffe));
                                 break;
                             case '2':
-                                Console.WriteLine(human.AddWater(coffeMachine));
+                                Console.WriteLine(human.AddCapsule(coffeMachine, CapsuleType.Tea));
                                 break;
                             case '3':
-                                if (coffeMachine.Filter != null)
+                                Console.WriteLine(human.AddCapsule(coffeMachine, CapsuleType.Expresso));
+                                break;
+                            case '4':
+                                Console.WriteLine(human.AddWater(coffeMachine));
+                                break;
+                            case '5':
+                                if (coffeMachine.Capsule != null)
                                 {
                                     Console.WriteLine("Started brewing");
                                     Console.WriteLine(human.StartCoffeMachine(coffeMachine));
                                 }
                                 else
                                 {
-                                    Console.WriteLine("doh you forgot filter");
+                                    Console.WriteLine("doh you forgot capsule");
                                 }
                                 break;
-                            case '4':
+                            case '6':
                                 if (coffeMachine.OnOff == false)
                                 {
-                                    Console.WriteLine("Coffe is already off");
+                                    Console.WriteLine("Coffe Machine is already off");
                                 }
                                 else
                                 {

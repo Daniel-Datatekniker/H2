@@ -30,25 +30,26 @@ namespace CoffeMachineTask
             return $"tank is full";
         }
 
-        public string AddFilter(CoffeMachine cm)
+        public string AddCapsule(CoffeMachine cm, CapsuleType capsule)
         {
-            if (cm.Filter != null)
+            if (cm.Capsule != null)
             {
-                string returnText = $"{RemoveFilter(cm)} and I added a new filter"; 
-                cm.Filter = new Filter(100);
+                string returnText = $"{RemoveCapsule(cm)} capsule and I added a {capsule.ToString()} capsule"; 
+                cm.Capsule = new Capsule(capsule);
                 return returnText;
             }
             else
             {
-                cm.Filter = new Filter(100);
-                return "i added a filter";
+                cm.Capsule = new Capsule(capsule);
+                return $"i added a {capsule.ToString()} capsule";
             }
         }
 
-        public string RemoveFilter(CoffeMachine cm)
+        public string RemoveCapsule(CoffeMachine cm)
         {
-            cm.Filter = null;
-            return "i removed the old filter";
+            string oldCap = cm.Capsule.Type.ToString();
+            cm.Capsule = null;
+            return $"i removed the old {oldCap}";
         }
 
         public string StartCoffeMachine(CoffeMachine cm)
