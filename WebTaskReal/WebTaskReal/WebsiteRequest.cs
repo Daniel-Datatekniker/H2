@@ -19,23 +19,34 @@ namespace WebTaskReal
         //Constructor
         public WebsiteRequest()
         {
-          
-            
+
+
         }
-            //Methods
+        //Methods
         public string Request(Link link)
         {
-            webRequest = WebRequest.Create(link.Path);
-            webRequest.Credentials = CredentialCache.DefaultCredentials;
-            Response();
+            try
+            {
 
+                webRequest = WebRequest.Create(link.Path);
+                webRequest.Credentials = CredentialCache.DefaultCredentials;
+                Response();
+
+            }
+            catch (Exception e)
+            {
+
+                html = e.Message;
+            }
             return $"{html}";
         }
 
         private void Response()
         {
-            WebResponse = webRequest.GetResponse();
-            Stream();
+            
+                WebResponse = webRequest.GetResponse();
+                Stream();
+            
         }
 
         private void Stream()

@@ -43,10 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Example\EmailTransport.cs" />
-    <Compile Include="Example\ICommunication.cs" />
-    <Compile Include="Example\Message.cs" />
-    <Compile Include="Example\MessageController.cs" />
     <Compile Include="FileRequest.cs" />
     <Compile Include="IRequest.cs" />
     <Compile Include="Link.cs" />
