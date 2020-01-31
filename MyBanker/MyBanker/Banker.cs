@@ -29,91 +29,66 @@ namespace MyBanker
         public Card CreateCard(CardType type)
         {
             Card card = new MasterCard();
-            int[] cardNum;
-            string prefixString;
-            int count = 0;
+
+            int[] prefix;
 
             switch (type)
             {
                 case CardType.Maestro:
-                    card = new Maestro();
-                    cardNum = GenerateNumber(card.CardNumber);
-                     prefixString = card.Prefix[ran.Next(0, card.Prefix.Count)].ToString();
-                     count = 0;
-                    foreach (char t in prefixString)
-                    {
-                        cardNum[count] = Int32.Parse(t.ToString());
-                        count++;
-                    }
-                  card = new MasterCard("John", cardNum, GenerateNumber(card.AccountNumber));
+                    prefix = new int[4] { 5, 5, 5, 5 };
+                    card = new Maestro("John", GenerateAccountNumber(), GeneratCardNumber(16, prefix));
                     break;
                 case CardType.Mastercard:
-                    card = new MasterCard();
-                    cardNum = GenerateNumber(card.CardNumber);
-                    prefixString = card.Prefix[ran.Next(0, card.Prefix.Count)].ToString();
-                     count = 0;
-                    foreach (char t in prefixString)
-                    {
-                        cardNum[count] = Int32.Parse(t.ToString());
-                        count++;
-                    }
-                    card = new MasterCard("John", cardNum, GenerateNumber(card.AccountNumber));
+                    prefix = new int[2] { 5, 1 };
+                    card = new MasterCard("John", GenerateAccountNumber(), GeneratCardNumber(16, prefix));
                     break;
-
                 case CardType.Visa:
-                    card = new Visa();
-                    cardNum = GenerateNumber(card.CardNumber);
-                    prefixString = card.Prefix[ran.Next(0, card.Prefix.Count)].ToString();
-                    count = 0;
-                    foreach (char t in prefixString)
-                    {
-                        cardNum[count] = Int32.Parse(t.ToString());
-                        count++;
-                    }
-                    card = new Visa("John", cardNum, GenerateNumber(card.AccountNumber));
+                    prefix = new int[1] {4};
+                    card = new Visa("John", GenerateAccountNumber(), GeneratCardNumber(16, prefix));
                     break;
                 case CardType.VisaElectron:
-                    card = new VisaElectron();
-                    cardNum = GenerateNumber(card.CardNumber);
-                    prefixString = card.Prefix[ran.Next(0, card.Prefix.Count)].ToString();
-                    count = 0;
-                    foreach (char t in prefixString)
-                    {
-                        cardNum[count] = Int32.Parse(t.ToString());
-                        count++;
-                    }
-                    card = new VisaElectron("John", cardNum, GenerateNumber(card.AccountNumber));
+                    prefix = new int[4] { 4, 0, 2, 6 };
+                    card = new VisaElectron("John", GenerateAccountNumber(), GeneratCardNumber(16, prefix));
                     break;
                 case CardType.Debit:
-                    card = new Debit();
-                    cardNum = GenerateNumber(card.CardNumber);
-                    prefixString = card.Prefix[ran.Next(0, card.Prefix.Count)].ToString();
-                    count = 0;
-                    foreach (char t in prefixString)
-                    {
-                        cardNum[count] = Int32.Parse(t.ToString());
-                        count++;
-                    }
-                    card = new Debit("John", cardNum, GenerateNumber(card.AccountNumber));
+                    prefix = new int[4] { 2, 4, 0, 0 };
+                    card = new Debit("John", GenerateAccountNumber(), GeneratCardNumber(16, prefix));
                     break;
                 default:
                     break;
             }
-            
+
             return card;
         }
 
-        public int[] GenerateNumber(int[] Array)
+        public int[] GeneratCardNumber(int length, int[] prefix)
         {
-           
+            int[] temp = new int[length];
 
-            for (int i = 0; i < Array.Length; i++)
+            for (int i = 0; i < length; i++)
             {
-                Array[i] = ran.Next(0, 9);
+                temp[i] = ran.Next(0, 9);
+            }
+
+            for (int j = 0; j < prefix.Length; j++)
+            {
+                temp[j] = prefix[j];
             }
 
 
-            return Array;
+            return temp;
+        }
+
+        public int[] GenerateAccountNumber()
+        {
+            int[] temp = new int[14];
+
+            for (int i = 0; i < 14; i++)
+            {
+                temp[i] = ran.Next(0, 9);
+            }
+
+            return temp;
         }
     }
 }

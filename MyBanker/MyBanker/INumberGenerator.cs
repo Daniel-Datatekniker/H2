@@ -8,6 +8,8 @@ namespace MyBanker
 {
     interface INumberGenerator
     {
-        int[] GenerateNumber(int[] array);
+        int[] GeneratCardNumber(int length, int[] Prefix);
+        int[] GenerateAccountNumber();
+
     }
 }

@@ -13,10 +13,9 @@ namespace MyBanker
         private int[] cardNumber = new int[16];
         private DateTime experirationDate;
         private int[] accountNumber = new int[14];
-        private List<int> prefix = new List<int>();
         private double money;
         private double minMoney = 0;
-
+        protected Random ran = new Random();
 
         //Properties
         public int[] CardNumber
@@ -41,11 +40,6 @@ namespace MyBanker
             protected set { accountNumber = value; }
         }
 
-        public List<int> Prefix
-        {
-            get { return prefix; }
-            protected set { prefix = value; }
-        }
         public double Money
         {
             get { return money; }

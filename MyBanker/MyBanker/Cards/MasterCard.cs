@@ -14,7 +14,7 @@ namespace MyBanker
         }
         public MasterCard(string humanName, int[] cardnumb, int[] accountNumb) : base(humanName, cardnumb, accountNumb)
         {
-            Prefix = new List<int>() {51,52,53,53,54,55};
+            
                 ExperiationDate = DateTime.UtcNow.AddYears(5);
         }
     }
