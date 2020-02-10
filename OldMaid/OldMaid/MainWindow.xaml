@@ -1,0 +1,23 @@
+﻿<Window x:Class="OldMaid.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OldMaid"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Label VerticalAlignment="Top" HorizontalAlignment="Center" Content="Welcome to old maiden game" FontSize="20" FontWeight="Bold" Margin="30"></Label>
+          
+            <Label Name="PlayerLabelText" HorizontalAlignment="Center" Content="Input player name"> </Label>
+            <TextBox Name="PlayerNameInput" Text="..." Width="200"> </TextBox>
+           
+            
+            <Label Name="AiInputLabel" HorizontalAlignment="Center"  Content="Amount of ai"> </Label>
+            <TextBox Name="AiInput" Text="..." Width=" 200"> </TextBox>
+            <Button Name="Start" Content="Start" Width="50" Margin="20"> </Button>
+        </StackPanel>
+    </Grid>
+</Window>
