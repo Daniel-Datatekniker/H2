@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Game">
+      <HintPath>..\..\..\..\..\..\..\gameDll\Game.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -63,6 +66,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Wrapper\ImageCardWrapper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -93,6 +97,78 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\bear.png" />
+    <Resource Include="Assets\bee.png" />
+    <Resource Include="Assets\bull.png" />
+    <Resource Include="Assets\camel.png" />
+    <Resource Include="Assets\cat.png" />
+    <Resource Include="Assets\crab.png" />
+    <Resource Include="Assets\crocodile.png" />
+    <Resource Include="Assets\dog.png" />
+    <Resource Include="Assets\duck.png" />
+    <Resource Include="Assets\fish.png" />
+    <Resource Include="Assets\grasshopper.png" />
+    <Resource Include="Assets\ladybug.png" />
+    <Resource Include="Assets\mouse.png" />
+    <Resource Include="Assets\ostrich.png" />
+    <Resource Include="Assets\Owl.png" />
+    <Resource Include="Assets\panda.png" />
+    <Resource Include="Assets\parrot.png" />
+    <Resource Include="Assets\penquin.png" />
+    <Resource Include="Assets\pig.png" />
+    <Resource Include="Assets\porkypine.png" />
+    <Resource Include="Assets\racoon.png" />
+    <Resource Include="Assets\rooster.png" />
+    <Resource Include="Assets\seahorse.png" />
+    <Resource Include="Assets\seal.png" />
+    <Resource Include="Assets\shark.png" />
+    <Resource Include="Assets\sheep.png" />
+    <Resource Include="Assets\snake.png" />
+    <Resource Include="Assets\squid.png" />
+    <Resource Include="Assets\whale.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\C1.png" />
+    <Resource Include="Assets\C10.png" />
+    <Resource Include="Assets\C11.png" />
+    <Resource Include="Assets\C12.png" />
+    <Resource Include="Assets\C13.png" />
+    <Resource Include="Assets\C2.png" />
+    <Resource Include="Assets\C3.png" />
+    <Resource Include="Assets\C4.png" />
+    <Resource Include="Assets\C5.png" />
+    <Resource Include="Assets\C6.png" />
+    <Resource Include="Assets\C7.png" />
+    <Resource Include="Assets\C8.png" />
+    <Resource Include="Assets\C9.png" />
+    <Resource Include="Assets\D1.png" />
+    <Resource Include="Assets\D10.png" />
+    <Resource Include="Assets\D11.png" />
+    <Resource Include="Assets\D12.png" />
+    <Resource Include="Assets\D13.png" />
+    <Resource Include="Assets\D2.png" />
+    <Resource Include="Assets\D3.png" />
+    <Resource Include="Assets\D4.png" />
+    <Resource Include="Assets\D5.png" />
+    <Resource Include="Assets\D6.png" />
+    <Resource Include="Assets\D7.png" />
+    <Resource Include="Assets\D8.png" />
+    <Resource Include="Assets\D9.png" />
+    <Resource Include="Assets\H1.png" />
+    <Resource Include="Assets\H10.png" />
+    <Resource Include="Assets\H11.png" />
+    <Resource Include="Assets\H12.png" />
+    <Resource Include="Assets\H13.png" />
+    <Resource Include="Assets\H2.png" />
+    <Resource Include="Assets\H3.png" />
+    <Resource Include="Assets\H4.png" />
+    <Resource Include="Assets\H5.png" />
+    <Resource Include="Assets\H6.png" />
+    <Resource Include="Assets\H7.png" />
+    <Resource Include="Assets\H8.png" />
+    <Resource Include="Assets\H9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

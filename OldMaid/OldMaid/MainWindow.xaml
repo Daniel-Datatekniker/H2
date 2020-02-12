@@ -5,19 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OldMaid"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" SizeChanged="Window_SizeChanged">
     <Grid>
-        
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+
+        <StackPanel Name="Menu" VerticalAlignment="Top" HorizontalAlignment="Center"  >
             <Label VerticalAlignment="Top" HorizontalAlignment="Center" Content="Welcome to old maiden game" FontSize="20" FontWeight="Bold" Margin="30"></Label>
-          
-            <Label Name="PlayerLabelText" HorizontalAlignment="Center" Content="Input player name"> </Label>
-            <TextBox Name="PlayerNameInput" Text="..." Width="200"> </TextBox>
-           
-            
-            <Label Name="AiInputLabel" HorizontalAlignment="Center"  Content="Amount of ai"> </Label>
-            <TextBox Name="AiInput" Text="..." Width=" 200"> </TextBox>
-            <Button Name="Start" Content="Start" Width="50" Margin="20"> </Button>
+
+            <Label Name="PlayerLabelText" HorizontalAlignment="Center" Content="Input player name"></Label>
+            <TextBox Name="PlayerNameInput" Text="" Width="200"></TextBox>
+
+            <Label Name="Error" HorizontalAlignment="Center" Content="Wrong input" Visibility="Hidden"></Label>
+
+            <Label HorizontalAlignment="Center" Content="Card type"></Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <CheckBox Name="ImageCardCheck" Content="Image" Margin="10" Checked="ImageCheck_Checked"></CheckBox>
+                <CheckBox Name="StandartCardCheck" Content="Value" Margin="10" Checked="ValueCheck_Checked" ></CheckBox>
+            </StackPanel>
+
+            <Button Name="Start" Content="Start" Width="50" Margin="20" Click="Start_Click"></Button>
         </StackPanel>
+
+        <Grid Name="GameScreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Hidden" >
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="30">
+                <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Top" Name="EnemyCanvas" >
+                    <Image Name="Image1"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Assets/bear.png" Width="100" Height="100" ></Image>
+                    <Image Name="Image2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Source="Assets/bee.png" Width="100" Height="100" Canvas.Left="50"></Image>
+                </Canvas>
+            </StackPanel>
+                <Label Name="PlayerTurn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="turn" > </Label>
+            
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="100" Margin="30">
+                <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Name="PlayerCanvas" Height="100">
+                   
+                </Canvas>
+
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

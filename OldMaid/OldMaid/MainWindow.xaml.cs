@@ -12,22 +12,131 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Game;
+using OldMaid.Wrapper;
 
 namespace OldMaid
 {
+   
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        int distance = 40;
+
         public MainWindow()
         {
             InitializeComponent();
+
+
         }
 
         private void TextBox_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            if (PlayerNameInput.Text.Length >= 1)
+            {
+
+                if (StandartCardCheck.IsChecked == true)
+                {
+                    GameCon game = new GameCon(CardTypes.Value, PlayerNameInput.Text);
+                    game.StartGame();
+                    AddCardsToCanvas(game.GetCards());
+                    game.PlayerTurnEvent += Game_PlayerTurnEvent;
+                    GameScreen.Visibility = Visibility.Visible;
+                    Menu.Visibility = Visibility.Hidden;
+                   
+                }
+                else if (ImageCardCheck.IsChecked == true)
+                {
+                    GameCon game = new GameCon(CardTypes.Image, PlayerNameInput.Text);
+                    game.StartGame();
+                    AddCardsToCanvas(game.GetCards());
+                    Menu.Visibility = Visibility.Hidden;
+                    GameScreen.Visibility = Visibility.Visible;
+                
+                }
+                else
+                {
+                    ErrorMessage("No card checked");
+                }
+
+
+            }
+            else
+            {
+                ErrorMessage("No player name");
+                Error.Visibility = Visibility.Visible;
+
+            }
+
+        }
+
+        public void AddCardsToCanvas(List<ICard> cards)
+        {
+         
+            foreach (var card in cards)
+            {
+                if (card is Card)
+                {
+
+                    PlayerCanvas.Children.Add(new ImageCardWrapper((Card)card, distance));
+                    distance += 30;
+
+          
+                }
+
+                
+            }
+
+          
+        }
+
+        private void Game_PlayerTurnEvent(object sender, EventArgs e)
+        {
+
+            Dispatcher.Invoke(() =>
+           {
+               if (e is PlayerEventArgs)
+               {
+                   PlayerTurn.Content = ((PlayerEventArgs)e).PlayerTurn + " turn";
+               }
+           }
+              );
+
+
+        }
+
+
+
+
+        private void ErrorMessage(string message)
+        {
+            Error.Content = message;
+            Error.Visibility = Visibility.Visible;
+        }
+
+        private void ImageCheck_Checked(object sender, RoutedEventArgs e)
+        {
+            StandartCardCheck.IsChecked = false;
+        }
+
+        private void ValueCheck_Checked(object sender, RoutedEventArgs e)
+        {
+            ImageCardCheck.IsChecked = false;
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            
+            PlayerLabelText.Content = (e.NewSize.Width / distance).ToString();
         }
     }
 }
