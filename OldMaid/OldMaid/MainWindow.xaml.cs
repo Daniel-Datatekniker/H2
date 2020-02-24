@@ -17,13 +17,13 @@ using OldMaid.Wrapper;
 
 namespace OldMaid
 {
-   
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        int distance = 40;
+        double distance = 40;
 
         public MainWindow()
         {
@@ -52,7 +52,7 @@ namespace OldMaid
                     game.PlayerTurnEvent += Game_PlayerTurnEvent;
                     GameScreen.Visibility = Visibility.Visible;
                     Menu.Visibility = Visibility.Hidden;
-                   
+
                 }
                 else if (ImageCardCheck.IsChecked == true)
                 {
@@ -61,7 +61,7 @@ namespace OldMaid
                     AddCardsToCanvas(game.GetCards());
                     Menu.Visibility = Visibility.Hidden;
                     GameScreen.Visibility = Visibility.Visible;
-                
+
                 }
                 else
                 {
@@ -81,22 +81,23 @@ namespace OldMaid
 
         public void AddCardsToCanvas(List<ICard> cards)
         {
-         
+
             foreach (var card in cards)
             {
                 if (card is Card)
                 {
 
-                    PlayerCanvas.Children.Add(new ImageCardWrapper((Card)card, distance));
-                    distance += 30;
-
-          
+                    PlayerCanvas.Children.Add(new ImageCardWrapper((Card)card, (int)distance, SystemParameters.PrimaryScreenWidth));
+                    EnemyCanvas.Children.Add(new ImageCardWrapper((Card)card, (int)distance, SystemParameters.PrimaryScreenWidth));
+                 
+                  distance += 0;
                 }
 
-                
-            }
 
-          
+            }
+           
+            WindowState = WindowState.Maximized;
+
         }
 
         private void Game_PlayerTurnEvent(object sender, EventArgs e)
@@ -135,8 +136,17 @@ namespace OldMaid
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            
-            PlayerLabelText.Content = (e.NewSize.Width / distance).ToString();
+
+            new CanvasUpdater(e.NewSize.Width, PlayerCanvas);
+            new CanvasUpdater(e.NewSize.Width, EnemyCanvas);
+
+
         }
+
+        
+
+        
+
+        
     }
 }

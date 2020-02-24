@@ -36,7 +36,7 @@ namespace Game
             imageCards.AddRange(imageCards);
 
 
-            imageCards = new List<ImageCard>(ShuffleList(imageCards));
+            //imageCards = new List<ImageCard>(ShuffleList(imageCards));
             imageCards.Remove(imageCards.Find(o => o.GetValue() == "Cat"));
             //Shuffle deck here
             deck = new Queue<ICard>(imageCards);

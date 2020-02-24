@@ -26,21 +26,21 @@
         </StackPanel>
 
         <Grid Name="GameScreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Hidden" >
-            
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="30">
-                <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Top" Name="EnemyCanvas" >
-                    <Image Name="Image1"  HorizontalAlignment="Center" VerticalAlignment="Center" Source="Assets/bear.png" Width="100" Height="100" ></Image>
-                    <Image Name="Image2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Source="Assets/bee.png" Width="100" Height="100" Canvas.Left="50"></Image>
-                </Canvas>
-            </StackPanel>
-                <Label Name="PlayerTurn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="turn" > </Label>
-            
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="100" Margin="30">
-                <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Name="PlayerCanvas" Height="100">
-                   
-                </Canvas>
 
+            <!-- AI deck -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10">
+                <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Top" Name="EnemyCanvas" >
+                </Canvas>
             </StackPanel>
+            <Label Name="PlayerTurn" HorizontalAlignment="Center" VerticalAlignment="Center" Content="turn" ></Label>
+
+            <!-- Player Deck-->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="100" Margin="10">
+                <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Name="PlayerCanvas" Height="100">
+
+                </Canvas>
+            </StackPanel>
+
         </Grid>
     </Grid>
 </Window>

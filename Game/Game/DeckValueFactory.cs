@@ -43,7 +43,7 @@ namespace Game
 
 
             //Shuffle deck here
-            valueCards = new List<ValueCard>(ShuffleList(valueCards));
+          //  valueCards = new List<ValueCard>(ShuffleList(valueCards));
             deck = new Queue<ICard>(valueCards);
 
         }
